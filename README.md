@@ -1,0 +1,1 @@
+Sentiment Analysis model wrapped in a web application using the Flask mico-framwork. The model has been trained using a convolutional neural network. Sensitivity analysis of the model's tuning parameters is depicted through a series of interactive Bokeh figures. 
