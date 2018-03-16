@@ -19,4 +19,4 @@ SEQUENCE_LENGTH = 400
 SENSITIVITY_PLOT_TITLE = "Accuracy Vs. Tuning Parameter Values" 
 PARAM_FEATURE_NAME = 'param_value'
 ACC_FEATURE_NAME = 'y1'
-
+DEFAULT_SENSITIVITY_ANALYSIS_DF = 'sensitivity_analysis_sequence_length_df'

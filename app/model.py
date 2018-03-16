@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from keras.models import load_model
-from keras.preprocessing import sequence
 import re
 import pickle
+from keras.models import load_model
+from keras.preprocessing import sequence
 
 
 class Loader:    
-    def __init__(self, model_path, word_to_index_dict_path, index_to_word_dict_path):
+    def __init__(
+            self,
+            model_path,
+            word_to_index_dict_path,
+            index_to_word_dict_path):
+        
         self.model_path = model_path
         self.word_to_index_dict_path = word_to_index_dict_path
         self.index_to_word_dict_path = index_to_word_dict_path  
@@ -38,7 +43,13 @@ class Loader:
     
     
 class Model_Predictor:
-    def __init__(self, loader, unknown_token, start_token, sequence_length):    
+    def __init__(
+                self,
+                loader,
+                unknown_token,
+                start_token,
+                sequence_length):
+        
         self.loader = loader
         self.unknown_token = unknown_token
         self.start_token = start_token
@@ -54,16 +65,21 @@ class Model_Predictor:
         words_input = self.preprocess_input(sentence_input)
         word_to_index_dict = self.loader.word_to_index_dict_loader()
         
-        predict_sentence =  [word_to_index_dict[self.start_token]]                  #add the start token
+        predict_sentence =  [word_to_index_dict[self.start_token]]                  #Add the start token
                                                         
         for index_word in words_input:
             if index_word in word_to_index_dict:
-                next_seq=word_to_index_dict[index_word]
+                next_seq = word_to_index_dict[index_word]
             else:
-                next_seq= word_to_index_dict[self.unknown_token]    
+                next_seq = word_to_index_dict[self.unknown_token]    
             predict_sentence.append(next_seq)   
     
-        predict_sentence=sequence.pad_sequences([predict_sentence],maxlen=self.sequence_length,padding='post',truncating='post',value=0)             
+        predict_sentence=sequence.pad_sequences(
+                                                [predict_sentence],
+                                                maxlen=self.sequence_length,
+                                                padding='post',
+                                                truncating='post',
+                                                value=0)             
         return(predict_sentence)
 
     def initialise_model(self):
