@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Application routes.
+"""
 from flask import render_template, session, redirect, url_for
 from bokeh.embed import components
 from . import main

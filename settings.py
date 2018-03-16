@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Define encoded settings used throughout application.
+"""
 from os.path import dirname,  abspath
 
 

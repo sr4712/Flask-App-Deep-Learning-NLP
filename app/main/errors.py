@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Error handles.
+"""
 from flask import render_template
 from . import main
 

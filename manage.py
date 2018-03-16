@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Module to start the application.
+"""
 import os
 from flask_script import Server, Manager
 from app import create_app

@@ -1,13 +1,27 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Classes for sentiment analysis.
+"""
 import re
 import pickle
 from keras.models import load_model
 from keras.preprocessing import sequence
 
 
-class Loader:    
+class Loader:   
+    
+    '''Loads required objects to perform sentiment analysis, 
+    such as the trained model, word to index dictionary, and 
+    index to word dictionary.
+    
+    
+    # Arguments:
+        model_path: path containing the model
+        word_to_index_dict_path: word_to_index dictionary filepath
+        index_to_word_dict_path: index_to_word dictionary filepath
+        
+    '''
+    
     def __init__(
             self,
             model_path,
@@ -43,6 +57,18 @@ class Loader:
     
     
 class Model_Predictor:
+    
+    '''Allows predictions to be performed using train model.
+    
+    
+    # Arguments:
+        loader: loader class
+        unknown_token: token which represents unencountered words
+        start_token: token which represents the beginning on an input
+        sequence_length: the length of every provided input
+        
+    '''
+    
     def __init__(
                 self,
                 loader,

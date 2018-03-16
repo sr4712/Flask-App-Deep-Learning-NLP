@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+"""Classes for sensitivity analysis.
+"""
 import os
 import pandas as pd
 from bokeh.plotting import figure
 
 
 class DF_Loader:
+    
+    '''Loads required objects to perform sensitivity analysis.
+    
+    
+    # Arguments:
+        df_sensitivity_path: filepath for directory containing 
+            dataframes with sensitivity analysis results
+        
+    '''
+    
     def __init__(self, df_sensitivity_path):
         self.df_sensitivity_path = df_sensitivity_path
 
@@ -21,6 +32,18 @@ class DF_Loader:
 
 
 class Plotter():
+    
+    '''Creates interactives Bokeh plots
+    
+    
+    # Arguments:
+        df_plot: dataframe containing sensitivity analysis results
+        plot_title: desired title for the plot
+        param_feature_name: feature name for the independent tuning parameter
+        acc_feature_name: featuer name for the dependent metric
+        
+    '''
+    
     def __init__(
             self,
             df_plot,
