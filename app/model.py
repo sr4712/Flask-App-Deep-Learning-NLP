@@ -115,12 +115,12 @@ class Model_Predictor:
     
     @staticmethod    
     def map_output_to_sentiment(model_output_probability):
-        if model_output_probability >= .6:
+        if model_output_probability >= .95:
             sa_result = 'Positive Sentiment'
-        elif model_output_probability <= .4:
+        elif model_output_probability <= .05:
             sa_result = 'Negative Sentiment'
         else:
-            sa_result = 'Model could not determine the sentiment. Please input a longer review'
+            sa_result = 'Model could not determine the sentiment'
         return sa_result    
                                
     def predict_with_model(self, sentence_input):

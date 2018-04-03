@@ -36,7 +36,7 @@ def model_predict():
     return render_template(
                           'model_template.html', 
                           form=form, 
-                          name='model in development. Please try again later')
+                          name=session['sa_model_output'])
 
 @main.route('/sensitivity_analysis', methods=['GET', 'POST'])
 def sensitivity_analysis():    
